@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="./styles.css" />
+	<script src="./app.js" defer></script>
+	<title>Profile</title>
+</head>
+
+<body>
+	<template>Build a Responsive Sidebar Menu with Animated Dropdowns</template>
+	<nav id="sidebar">
+		<ul>
+			<li>
+				<span class="logo">Sanjay</span>
+				<button onClick="toggleSidebar()" id="toggle-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z" />
+					</svg>
+				</button>
+			</li>
+			<li>
+				<a href="./index.html">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+					</svg>
+					<span>Home</span>
+				</a>
+			</li>
+			<li>
+				<a href="./dashboard.html">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Zm80-400h160v-240H200v240Zm400 320h160v-240H600v240Zm0-480h160v-80H600v80ZM200-200h160v-80H200v80Zm160-320Zm240-160Zm0 240ZM360-280Z" />
+					</svg>
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<button onClick="toggleSubMenu(this)" class="dropdown-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z" />
+					</svg>
+					<span>Create</span>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+					</svg>
+				</button>
+				<ul class="sub-menu">
+					<div>
+						<li><a href="#">Folder</a></li>
+						<li><a href="#">Document</a></li>
+						<li><a href="#">Project</a></li>
+					</div>
+				</ul>
+			</li>
+			<li>
+				<button onClick="toggleSubMenu(this)" class="dropdown-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M222-200 80-342l56-56 85 85 170-170 56 57-225 226Zm0-320L80-662l56-56 85 85 170-170 56 57-225 226Zm298 240v-80h360v80H520Zm0-320v-80h360v80H520Z" />
+					</svg>
+					<span>Todo-Lists</span>
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+					</svg>
+				</button>
+				<ul class="sub-menu">
+					<div>
+						<li><a href="#">Work</a></li>
+						<li><a href="#">Private</a></li>
+						<li><a href="#">Coding</a></li>
+						<li><a href="#">Gardening</a></li>
+						<li><a href="#">School</a></li>
+					</div>
+				</ul>
+			</li>
+			<li>
+				<a href="./calendar.html">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
+					</svg>
+					<span>Calendar</span>
+				</a>
+			</li>
+			<li class="active">
+				<a href="./profile.html">
+					<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+						fill="#e8eaed">
+						<path
+							d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
+					</svg>
+					<span>Profile</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<div class="container">
+			<h2>Welcome to Profile</h2>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla magni
+				esse, eligendi modi vel odit quod quibusdam. Deserunt ea suscipit
+				nesciunt adipisci aperiam, totam aspernatur. Laborum sequi deserunt
+				beatae itaque molestias alias quos accusantium, facere non, neque
+				placeat est veritatis pariatur eum consequatur quod autem illum!
+				Quisquam eveniet dolorem in.
+			</p>
+		</div>
+		<div class="container">
+			<h2>Example Heading</h2>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem
+				praesentium ut rerum laudantium et voluptatem neque amet, culpa nisi.
+				Velit, harum dignissimos rem quas expedita magnam omnis reiciendis
+				vero repellat saepe provident minima doloremque et iste cumque. Enim,
+				illum omnis aut nemo laudantium pariatur, dolore repudiandae optio
+				soluta, fugit libero esse aliquam sequi. Maiores quisquam praesentium
+				in eveniet fugiat reprehenderit at architecto iusto fuga dolore vel,
+				nobis atque dignissimos adipisci, distinctio sit asperiores? Quis esse
+				dolore incidunt qui quia cumque, dolores nihil, ducimus modi pariatur
+				dicta quod. Dolorem, fuga. Aut natus totam error culpa dignissimos,
+				quasi ut eligendi dolores cum!
+			</p>
+		</div>
+		<div class="container">
+			<h2>Lorem Ipsum</h2>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum quas
+				repellendus perspiciatis reiciendis tempore voluptatum expedita?
+				Suscipit nostrum facere, natus asperiores dicta minima sed eum eaque
+				magnam veniam maiores nihil libero, quod voluptatum perferendis!
+				Architecto eos explicabo in animi aut sequi consequuntur labore
+				accusamus dicta at sed quis placeat delectus omnis provident, quae
+				alias incidunt? Neque sed harum sunt consequatur, dolorem aliquam
+				perspiciatis nobis eius quam adipisci voluptatibus laborum explicabo
+				earum tempora vitae, alias ea itaque impedit provident quos incidunt
+				reiciendis consequuntur. Quasi eius cum et a excepturi eum rerum culpa
+				repellendus. Molestias quaerat repellat deserunt, natus optio quidem
+				minus, quis, explicabo ipsam pariatur mollitia nostrum! Laborum ipsam
+				ipsum esse fugiat dolor quo ducimus dolorum maiores eligendi! Possimus
+				temporibus at eligendi similique nemo fugiat nam nobis, optio, ab
+				quidem dignissimos unde minus eum? Illo enim exercitationem pariatur
+				quia veniam perspiciatis beatae sit, et quisquam eaque reiciendis
+				temporibus maxime ratione, mollitia quaerat blanditiis debitis!
+				Inventore temporibus incidunt dolore quisquam quibusdam, tempora ad,
+				officia cupiditate eaque nesciunt dolor! Explicabo, est. Reprehenderit
+				architecto alias esse ut quidem, nobis nulla quo eum cupiditate
+				commodi non id dignissimos in totam recusandae odio quibusdam
+				praesentium neque harum obcaecati distinctio. Tenetur dolore qui dolor
+				labore, possimus totam quasi, deserunt odio nostrum obcaecati alias
+				blanditiis dignissimos ullam, explicabo consectetur. Alias provident
+				impedit aliquid fugiat est fuga rerum neque rem ipsum eveniet aliquam
+				laudantium autem, odit in atque. Ratione ea exercitationem odit nisi
+				repellat porro ex amet dignissimos, id enim nulla excepturi odio
+				debitis nobis fugiat aliquid eius fuga quod quis? Placeat cumque modi
+				doloribus blanditiis soluta vero explicabo sint beatae deleniti
+				reiciendis officia rerum magni numquam amet a, iure, facilis enim
+				dolor dicta voluptatem aperiam molestiae, hic repudiandae nemo. Quas
+				asperiores doloribus culpa ipsam! Sint aspernatur nostrum dolores
+				debitis veritatis consectetur omnis, soluta iusto maxime enim quae
+				ipsa voluptas id illum ea velit? Aperiam voluptatibus inventore
+				pariatur unde hic beatae. Vero quidem perferendis, tenetur consectetur
+				error quas molestiae saepe earum expedita nesciunt repellendus
+				mollitia repudiandae veniam dolorum laborum dicta eaque, quae ea dolor
+				voluptatem eum id maxime unde. Magni cum praesentium dolor totam dicta
+				id. Nemo voluptate similique eligendi, atque iste tempora facere
+				nesciunt rerum quo quis dolorum accusantium, maxime amet, cupiditate
+				nulla incidunt nihil adipisci? Molestiae cupiditate nisi id incidunt
+				perferendis accusantium deleniti ducimus eligendi exercitationem
+				minima quaerat assumenda reprehenderit fugiat sequi quia nesciunt
+				soluta, dolorum temporibus dolorem quae autem sed molestias pariatur
+				mollitia. Cupiditate veniam ex debitis laboriosam harum autem ipsum
+				facilis, accusamus neque quia nulla assumenda minus quos inventore
+				perspiciatis quod aspernatur illo, blanditiis cumque aliquam dicta?
+				Tempora dicta repudiandae accusantium molestiae eos quae reprehenderit
+				veritatis nulla velit unde, doloremque, nemo illum rerum sapiente,
+				autem aliquam neque tenetur dignissimos enim vitae delectus adipisci
+				totam quod! Rem, similique commodi enim tenetur voluptatum accusantium
+				minima magni qui praesentium suscipit sed, dolor nulla, pariatur earum
+				quas ut sequi sit corporis iste libero. Commodi vero voluptatibus
+				maxime totam dicta veritatis modi aliquam expedita perspiciatis velit
+				natus itaque, qui, sapiente eaque aperiam neque explicabo sequi
+				voluptas quia rem? Quos, neque?
+			</p>
+		</div>
+	</main>
+</body>
+
+</html>
