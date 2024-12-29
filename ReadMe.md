@@ -1,4 +1,4 @@
-To visit this web page [https://sanjayjadhav-9.github.io/responsive-template/]{Click here}
+To visit this web page [Click here](https://sanjayjadhav-9.github.io/responsive-template)
 
 <!-- Resources -->
 links for icons:
